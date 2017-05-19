@@ -31,22 +31,51 @@
       justify-content: space-around;
       margin-top: 15vh;
     }
+
+    .orange {
+      border: 2px solid orange;
+    }
+
+    .purple {
+      border: 2px solid purple;
+    }
+
+    .left {
+      margin-right: 4rem;
+      margin-left: 0;
+    }
+
+    .right {
+      margin-right: 0;
+      margin-left: 4rem;
+    }
   </style>
 </head>
 <body>
 <header>
   <h1>Magic 8 Ball</h1>
-  <small>All of your questions answered, just maybe not in the order you ask them.</small>
+  <small id="subhead">All of your questions answered, just maybe not in the order you ask them.</small>
 </header>
 
 <section class="container">
-  <img src="http://appinventor.mit.edu/explore/sites/all/files/Teach/media/image_8_ball.jpg" alt="a magic 8 ball">
-
+  <img onclick="handleClick()" src="http://appinventor.mit.edu/explore/sites/all/files/Teach/media/image_8_ball.jpg" alt="a magic 8 ball">
+  <div id="fortune-container"> </div>
   <div>
-    <form>
-      <!-- TODO: Add a text field and submit button, attach a form handler function -->
+    <form name="magic8" id="ask" onsubmit="answerQuestion()">
+            <!-- TODO: Add a text field and submit button, attach a form handler function -->
+      <label for="question">What is your question?</label>
+      <input type="text" name="question" id="question">
+      <input type="submit" name="submitQuestion" value="ASK">
+    </form>
+
+    <form name="addForm" id="addAnswer" onsubmit="addAnswer()">
+      <label for="addInput">What answer would you like to add?</label>
+      <input type="text" name="answerToAdd" id="addInput">
+      <input type="submit" value="GET ANSWERS">
+
     </form>
   </div>
+
 </section>
 <script type="text/javascript" src="scripts.js"></script>
 </body>
